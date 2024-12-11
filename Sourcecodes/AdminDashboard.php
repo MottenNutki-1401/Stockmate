@@ -4,6 +4,14 @@
     <link rel = "stylesheet" type ="text/css" href ="AdminDashboard.css">
     <head> 
     <body> 
+    <div class="top-border">
+  <a href="#" class="logout-link" title="Logout">
+    <img src="/Stockmate/Assets/Logout03.png" alt="Logout Icon" class="logout-icon">
+  </a>
+</div>
+
+
+    </div>
         <div class = "sidebar">
                <div class = "avatar">
                 <img src ="/Stockmate/Assets/Avatar.png"  alt ="admin">

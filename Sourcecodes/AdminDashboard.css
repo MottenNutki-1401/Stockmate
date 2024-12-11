@@ -1,54 +1,79 @@
 body {
-      font-family: Arial, sans-serif;
-       margin: 0;
-       display:flex;
+    font-family: Arial, sans-serif;
+     margin: 0;
+     display:flex;
 
 } 
+
+.logout-link {
+  padding: 8px 15px; /* Spacing for the icon */
+  text-decoration: none;
+}
+
+.logout-icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+}
+.top-border {
+  background-color: #4B0036; /* Purple border color */
+  height: 40px; /* Adjust height as needed */
+  width: 81%; /* Ensures it spans the entire page width */
+  margin-left: 250px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position:absolute; /* Fixes it at the top */
+  z-index: 1; /* Ensures it's above other elements */
+  top: 0;
+  left: 0;
+
+}
+
 .sidebar {
-    
-    width: 250px;
-    background-color: #9E898B;
-    color:aliceblue;
-    height: 100vh;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgb(82, 81, 81);
+  
+  width: 250px;
+  background-color: #9E898B;
+  color:aliceblue;
+  height: 100vh;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgb(82, 81, 81);
 }
 .avatar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-   justify-content: center;
-   margin: 50px;
-   margin-top: 10px;
-   margin-bottom: 10px;
-    
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+ justify-content: center;
+ margin: 50px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+  
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 nav ul li {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 nav ul li a {
-    color: rgb(10, 10, 10);
-    text-decoration: none;
-    font-size: 18px;
-    margin-bottom: 50px;
-    display: block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    background-color: aliceblue;
+  color: rgb(10, 10, 10);
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 50px;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  background-color: aliceblue;
 }
 nav ul li a:hover {
-    background-color: #522c5a;
+  background-color: #522c5a;
 }
 
 .main-content {
-    flex-grow: 1;
-    padding: 20px;
+  flex-grow: 1;
+  padding: 20px;
 }
