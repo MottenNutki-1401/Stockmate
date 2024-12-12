@@ -69,11 +69,155 @@ nav ul li a {
   transition: background-color 0.3s;
   background-color: aliceblue;
 }
+
 nav ul li a:hover {
   background-color: #522c5a;
 }
-
+.sidebar nav ul li.stockcontrol a {
+  background-color: #522c5a;
+  border-left: 10px solid #FF7972;
+}
 .main-content {
   flex-grow: 1;
   padding: 20px;
 }
+.stock-content {
+  flex: 1;
+  background-color: rgb(255, 255, 255);
+}
+.stockheader{
+  display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-left: 30px;
+    background-color: #ffffff;
+    width: 200px;
+}
+.search-bar{
+  padding: 10px;
+    font-size: 16px;
+    color: #2e2d2d;
+    width: 300px;
+    background-color: #888888;
+    border: none;
+    
+    
+}
+.searchbtn {
+  padding: 7.5px;
+  background-color: #C7C7C7;
+  border: none;
+  cursor: pointer;
+}
+
+.searchbtn img {
+  width: 20px;
+  height: 20px;
+}
+.add-product {
+  display: inline-flex;
+  padding: 7px 10px;
+  background-color: #C7C7C7;
+  height: 30px;
+  margin-left: 520px; /* Adjust the margin as needed */
+  border: none;
+  cursor: pointer;
+  text-align:center; /* Center the text */
+  text-decoration: none; /* Remove underline from link */
+  color: rgb(89, 89, 89); /* Text color */
+  border-radius: 5px; 
+ 
+}
+.add-product img {
+  width: 20px; /* Adjust the icon size as needed */
+  height: 20px; /* Adjust the icon size as needed */
+  margin-right: 5px; /* Add some space between the icon and text */
+}
+.deletebtn {
+  padding: 10px;
+  background-color: #9c9a9a;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.deletebtn img {
+  width: 20px;
+  height: 20px;
+}
+.table-container {
+  width: 95%;
+  margin-left: 30px;
+  margin-right: 30px;
+  overflow-x: auto;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+.stock-table thead {
+  background-color: #8e648c; /* Header background */
+  color: rgb(43, 38, 38); /* Header text color */
+}
+
+.stock-table th {
+  font-weight: bold;
+}
+
+.stock-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Alternating row color */
+}
+
+.stock-table tbody tr:hover {
+  background-color: #e6e6e6; /* Hover effect */
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.edit-btn,
+.remove-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #4b0249; /* Edit button color */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #6a0c6f;
+}
+
+.remove-btn {
+  background-color: #a50000; /* Remove button color */
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #d10000;
+}
+
+
+
+
