@@ -1,5 +1,4 @@
 <?php
-// Database connection
 $host = 'localhost'; // Replace with your MySQL host
 $dbname = 'stockmate'; // Replace with your MySQL database name
 $username = 'root'; // Replace with your MySQL username
@@ -13,54 +12,73 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $item_name = $_POST['product_name'];
-   $quantity = $_POST['stock_quantity'];
-   $item_id = $_POST['control_number'];
-
+    $id = $_POST['id'];
+    $item_name = $_POST['item_name'];
+    $quantity = $_POST['quantity'];
+    $item_id = $_POST['item_id'];
     $price = $_POST['price'];
     $image = $_FILES['image'];
 
-    // Handle file upload
-    $target_dir = "uploads/";
-    if (!is_dir($target_dir)) {
-        mkdir($target_dir, 0755, true);
-    }
-    $target_file = $target_dir . basename($image["name"]);
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    // Handle file upload if a new image is uploaded
+    if ($image['name']) {
+        $target_dir = "uploads/";
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0755, true);
+        }
+        $target_file = $target_dir . basename($image["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
-    $check = getimagesize($image["tmp_name"]);
-    if ($check === false) {
-        die("File is not an image.");
-    }
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($image["tmp_name"]);
+        if ($check === false) {
+            die("File is not an image.");
+        }
 
-    // Check file size (5MB max)
-    if ($image["size"] > 5000000) {
-        die("Sorry, your file is too large.");
-    }
+        // Check file size (5MB max)
+        if ($image["size"] > 5000000) {
+            die("Sorry, your file is too large.");
+        }
 
-    // Allow certain file formats
-    $allowed_types = ["jpg", "jpeg", "png", "gif"];
-    if (!in_array($imageFileType, $allowed_types)) {
-        die("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
-    }
+        // Allow certain file formats
+        $allowed_types = ["jpg", "jpeg", "png", "gif"];
+        if (!in_array($imageFileType, $allowed_types)) {
+            die("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
+        }
 
-    // Move the uploaded file to the target directory
-    if (!move_uploaded_file($image["tmp_name"], $target_file)) {
-        die("Sorry, there was an error uploading your file.");
-    }
+        // Move the uploaded file to the target directory
+        if (!move_uploaded_file($image["tmp_name"], $target_file)) {
+            die("Sorry, there was an error uploading your file.");
+        }
 
-    // Insert into database
-    $query = "INSERT INTO stock_items (item_name, quantity, item_id, price, image_path) VALUES (?, ?, ?, ?, ?)";
-    $statement = $pdo->prepare($query);
-    $statement->execute([$item_name, $quantity, $item_id, $price, $target_file]);
+        // Update the product with the new image path
+        $query = "UPDATE stock_items SET item_name = ?, quantity = ?, item_id = ?, price = ?, image_path = ? WHERE id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$item_name, $quantity, $item_id, $price, $target_file, $id]);
+    } else {
+        // Update the product without changing the image
+        $query = "UPDATE stock_items SET item_name = ?, quantity = ?, item_id = ?, price = ? WHERE id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$item_name, $quantity, $item_id, $price, $id]);
+    }
 
     // Redirect back to stock control panel
     header('Location: stockcontrolpanel.php');
     exit();
 }
-?>
 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $query = "SELECT * FROM stock_items WHERE id = ?";
+    $statement = $pdo->prepare($query);
+    $statement->execute([$id]);
+    $product = $statement->fetch(PDO::FETCH_ASSOC);
+    if (!$product) {
+        die("Product not found.");
+    }
+} else {
+    die("Invalid request.");
+}
+?>
 <!DOCTYPE html> 
 <html> 
     <title>Stockmate</title>

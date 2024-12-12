@@ -1,144 +1,114 @@
-/* General Styles */
-body {
+/* General Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
     display: flex;
-    background-color: #f8f9fa;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #79066b;
-    color: white;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .stock-container {
+    background-color: #d3d3d3;
+    width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .form-layout {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .image-upload {
+    width: 150px;
+    height: 150px;
+    background-color: #e6e6e6;
+    border: 2px dashed #999;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .image-upload .upload-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-}
-
-.profile {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.menu {
-    list-style: none;
-    padding: 0;
+    justify-content: center;
+  }
+  
+  .image-upload img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .image-upload p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #555;
+  }
+  
+  .image-upload input {
+    display: none;
+  }
+  
+  .details-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
     width: 100%;
-}
-
-.menu li {
-    padding: 15px 20px;
-    text-align: left;
-}
-
-.menu li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-.menu li.active {
-    background-color: #3c0734;
-    border-left: 5px solid #e91e63;
-}
-
-.logout {
-    margin-top: auto;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    border-top: 1px solid rgba(52, 5, 76, 0.2);
-    width: 100%;
-    text-align: center;
-    display: block;
-}
-
-/* Main Content */
-.main {
-    flex: 1;
-    padding: 20px;
-    background-color: white;
-}
-
-.header {
+  }
+  
+  .form-group {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.search-bar {
-    width: 300px;
-    padding: 10px;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.search-btn {
-    background-color: #4b2e83;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.add-product {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.stock-table {
+    font-size: 14px;
     width: 100%;
-    border-collapse: collapse;
+  }
+  
+  .submit-btn {
     margin-top: 20px;
-}
-
-.stock-table th, .stock-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-.stock-table th {
-    background-color: #4b2e83;
-    color: white;
-}
-
-.product-img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.edit-btn {
-    background-color: #007bff;
-    color: white;
+    width: 100%;
+    background-color: #4a2040;
+    color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 0;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-}
-
-.remove-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #3a1834;
+  }
+  

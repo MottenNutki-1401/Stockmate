@@ -81,6 +81,8 @@ nav ul li a:hover {
   flex-grow: 1;
   padding: 20px;
 }
+
+/*stock control section */
 .stock-content {
   flex: 1;
   background-color: rgb(255, 255, 255);
@@ -115,6 +117,7 @@ nav ul li a:hover {
   width: 20px;
   height: 20px;
 }
+
 .add-product {
   display: inline-flex;
   padding: 7px 10px;
@@ -151,7 +154,7 @@ nav ul li a:hover {
   width: 95%;
   margin-left: 30px;
   margin-right: 30px;
-  overflow-x: auto;
+  overflow-x:scroll;
 }
 
 .stock-table {
@@ -164,6 +167,7 @@ nav ul li a:hover {
 .stock-table th,
 .stock-table td {
   padding: 12px;
+  height: 50px;
   border: 1px solid #ccc;
 }
 
@@ -184,15 +188,13 @@ nav ul li a:hover {
   background-color: #e6e6e6; /* Hover effect */
 }
 
-.actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
+
 
 .edit-btn,
 .remove-btn {
   padding: 5px 10px;
+  
+  margin-top: 15px;
   border: none;
   border-radius: 4px;
   font-size: 14px;
@@ -206,18 +208,113 @@ nav ul li a:hover {
 }
 
 .edit-btn:hover {
-  background-color: #6a0c6f;
+  background-color: #9616c8;
 }
 
 .remove-btn {
-  background-color: #a50000; /* Remove button color */
+  background-color: #d10000; /* Remove button color */
   color: white;
 }
 
 .remove-btn:hover {
-  background-color: #d10000;
+  background-color: #fc3f00;
+}
+/*stockcontrol/add image css section */
+
+
+
+
+.stock-container {
+  background-color: #d3d3d3;
+  margin-left: 200px;
+  margin-top: 150px;
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.form-layout {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
 
+.image-upload {
+  width: 150px;
+  height: 150px;
+  background-color: #e6e6e6;
+  border: 2px dashed #999;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+}
 
+.image-upload .upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.image-upload img {
+  width: 40px;
+  height: 40px;
+}
+
+.image-upload p {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.image-upload input {
+  display: none;
+}
+
+.details-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #401536;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #f9ac11;
+}

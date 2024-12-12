@@ -1,3 +1,25 @@
+<?php
+$host = 'localhost'; // Replace with your MySQL host
+$dbname = 'stockmate'; // Replace with your MySQL database name
+$username = 'root'; // Replace with your MySQL username
+$password = ''; // Replace with your MySQL password
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+// Fetch stock items
+$query = "SELECT * FROM stock_items";
+$statement = $pdo->prepare($query);
+$statement->execute();
+$stock_items = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
 <!DOCTYPE html> 
 <html> 
     <title>Stockmate</title>
@@ -40,11 +62,14 @@
            <a href="addproduct.php" class="add-product"><img src="/Stockmate/Assets/add.png"> Add Product </a> 
            <button class="deletebtn"><img src="/Stockmate/Assets/delete.png"></button>
           </div>
+
+
           <div class="table-container">
   <table class="stock-table">
     <thead>
       <tr>
         <th><input type="checkbox" /></th>
+        <th></th>
         <th>Product</th>
         <th>Stock Quantity</th>
         <th>ID No.</th>
@@ -52,22 +77,26 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Example Row -->
-      <tr>
-        <td><input type="checkbox" /></td>
-        <td>Sample Product</td>
-        <td>30</td>
-        <td>10763</td>
-        <td>500</td>
-        <td class="actions">
-          <button class="edit-btn">Edit</button>
-          <button class="remove-btn">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>   
+    
+    <?php foreach ($stock_items as $item): ?>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td><img src="<?php echo htmlspecialchars($item['image_path']); ?>" alt="Product Image" width="50"></td>
+                            <td><?php echo htmlspecialchars($item['item_name']); ?></td>
+                            <td><?php echo htmlspecialchars($item['quantity']); ?></td>
+                            <td><?php echo htmlspecialchars($item['item_id']); ?></td>
+                            <td><?php echo htmlspecialchars($item['price']); ?></td>
+                            <td class="actions">
+                                <button class="edit-btn">Edit</button>
+                                <button class="remove-btn">Remove</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
-    </body>
+    </div>
+</body>
 </html>
+
+
