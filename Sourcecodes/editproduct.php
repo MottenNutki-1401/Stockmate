@@ -114,39 +114,48 @@ if (isset($_GET['id'])) {
         </div>
 
   <div class="stock-container">
-    <h1>Stock Details</h1>
-    <form action="addproduct.php" method="POST" enctype="multipart/form-data">
+    <h1>Edit Stock Details</h1>
+    <form action="editproduct.php" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="<?php echo htmlspecialchars($product['id']); ?>">
+
+
       <div class="form-layout">
         <div class="image-upload">
           <label for="product_image">
             <div class="upload-area">
-              <img src="/Stockmate/Assets/Upload.png" alt="Upload Icon">
-              <p>upload an image</p>
+              <img src="/Stockmate/Assets/Upload.png">
+              <p>upload new image</p>
             </div>
           </label>
           <input type="file" id="product_image" name="image" accept="image/*">
-
-        </div>
+          <img src="<?php echo htmlspecialchars($product['image_path']); ?>" alt="Product Image" width="100">
+                   </div>
         <div class="details-form">
           <div class="form-group">
-            <label for="product_name">Product Name</label>
-            <input type="text" id="product_name" name="product_name" required>
+            <label for="item_name">Product Name</label>
+            <input type="text" id="item_name" name="item_name" value="<?php echo htmlspecialchars($product['item_name']); ?>" required>
           </div>
+
+          
           <div class="form-group">
-            <label for="stock_quantity">Stock Quantity</label>
-            <input type="number" id="stock_quantity" name="stock_quantity" required>
+          <label for="Stock Quantity">Stock Quantity</label>
+               <input type="number" id="quantity" name="quantity" value="<?php echo htmlspecialchars($product['quantity']); ?>" required>
           </div>
+
+         
           <div class="form-group">
-            <label for="control_number">ID No. / Control No.</label>
-            <input type="text" id="control_number" name="control_number" required>
-          </div>
-          <div class="form-group">
-            <label for="price">Unit Price (₱)</label>
-            <input type="number" id="price" name="price" step="0.01" required>
-          </div>
+                        <label for="item_id">ID No. / Control No.</label>
+                        <input type="text" id="item_id" name="item_id" value="<?php echo htmlspecialchars($product['item_id']); ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Unit Price (₱)</label>
+                        <input type="number" id="price" name="price" step="0.01" value="<?php echo htmlspecialchars($product['price']); ?>" required>
+                    </div>
         </div>
       </div>
-      <button type="submit" class="submit-btn">Submit Item</button>
+      <button type="submit" class="submit-btn">Edit Item</button>
+     
     </form>
   </div>
 </body>

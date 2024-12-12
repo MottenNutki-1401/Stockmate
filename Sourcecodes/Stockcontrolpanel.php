@@ -87,7 +87,7 @@ $stock_items = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($item['item_id']); ?></td>
                             <td><?php echo htmlspecialchars($item['price']); ?></td>
                             <td class="actions">
-                                <button class="edit-btn">Edit</button>
+                            <a href="editproduct.php?id=<?php echo $item['id']; ?>" class="edit-btn">Edit</a>
                                 <button class="remove-btn">Remove</button>
                             </td>
                         </tr>
