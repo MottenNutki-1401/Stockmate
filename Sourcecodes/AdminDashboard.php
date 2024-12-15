@@ -22,7 +22,7 @@
                 <li><a href="#"><img src="/Stockmate/Assets/icon.png"> Dashboard</a></li>
                 <li><a href="Stockcontrolpanel.php"><img src="/Stockmate/Assets/stockcontrol.png"> Stock Control</a>
                 </li>
-                <li><a href="#"><img src="/Stockmate/Assets/supplier.png"> Suppliers</a></li>
+                <li><a href="supplier.php"><img src="/Stockmate/Assets/supplier.png"> Suppliers</a></li>
                 <li><a href="#"><img src="/Stockmate/Assets/staffs.png"> Staff Management</a></li>
                 <li><a href="#"><img src="/Stockmate/Assets/logs.png"> Activity Log</a></li>
             </ul>

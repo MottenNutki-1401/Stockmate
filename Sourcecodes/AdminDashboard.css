@@ -8,6 +8,7 @@ body {
 .logout-link {
   padding: 8px 15px; /* Spacing for the icon */
   text-decoration: none;
+  margin-right:10px;
 }
 
 .logout-icon {
@@ -17,13 +18,13 @@ body {
 .top-border {
   background-color: #4B0036; /* Purple border color */
   height: 40px; /* Adjust height as needed */
-  width: 81%; /* Ensures it spans the entire page width */
-  margin-left: 250px;
+  width: 100%; /* Ensures it spans the entire page width */
+ 
   display: flex;
   justify-content: flex-end;
   align-items: center;
   position:absolute; /* Fixes it at the top */
-  z-index: 1; /* Ensures it's above other elements */
+  z-index: -0; /* Ensures it's above other elements */
   top: 0;
   left: 0;
 
@@ -37,6 +38,7 @@ body {
   height: 100vh;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgb(82, 81, 81);
+  z-index: 1;
 }
 .avatar img {
   width: 100px;
@@ -86,6 +88,7 @@ nav ul li a:hover {
 .stock-content {
   flex: 1;
   background-color: rgb(255, 255, 255);
+  margin-left: 2px;
 }
 .stockheader{
   display: inline-flex;
@@ -99,6 +102,7 @@ nav ul li a:hover {
 .search-bar{
   padding: 10px;
     font-size: 16px;
+    margin-left: 5px;
     color: #2e2d2d;
     width: 300px;
     background-color: #888888;
@@ -151,14 +155,14 @@ nav ul li a:hover {
   height: 20px;
 }
 .table-container {
-  width: 95%;
-  margin-left: 30px;
+  width: 90%;
+  margin-left: 35px;
   margin-right: 30px;
-  overflow-x:scroll;
+  overflow-y:auto;
 }
 
 .stock-table {
-  width: 100%;
+  width: 99%;
   border-collapse: collapse;
   text-align: left;
   font-family: Arial, sans-serif;
@@ -168,6 +172,7 @@ nav ul li a:hover {
 .stock-table td {
   padding: 12px;
   height: 50px;
+  
   border: 1px solid #ccc;
 }
 
@@ -241,6 +246,13 @@ nav ul li a:hover {
   gap: 20px;
   align-items: center;
 }
+.supform-layout {
+  display: flexbox;
+  border: 1px solid #520000;
+padding:20px;
+  gap: 50px;
+  align-items:center;
+}
 
 .image-upload {
   width: 150px;
@@ -288,7 +300,12 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
 }
-
+.supplier-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px 40px;
+  width: 100%;
+}
 label {
   font-size: 14px;
   margin-bottom: 5px;
